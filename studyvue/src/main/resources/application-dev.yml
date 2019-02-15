@@ -1,0 +1,29 @@
+server:
+  port: 8081
+  error:
+    path: /error
+
+  servlet:
+    session:
+      timeout: 30m
+    context-path: /ice
+
+  tomcat:
+    max-threads: 300
+    uri-encoding: UTF-8
+
+  ssl:
+    key-alias: tomcathttps
+    key-store: sang.p12
+    key-store-password: 123456
+
+spring:
+  thymeleaf:
+    cache: false  #是否开启缓存，开发时可设置为 false ，默认为 true
+    check-template: false # 检查模板是否存在，默认为 true
+    check-template-location: true # 检查模板位置是否存在,默认为true
+    encoding: UTF-8 # 模板文件编码
+    prefix: /templates/ # 模板文件位置
+    servlet:
+      content-type: text/html # Content-type 配置
+    suffix: .html # 模板后缀

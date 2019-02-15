@@ -1,0 +1,14 @@
+server:
+  port: 1234
+
+spring:
+  profiles:
+    active: dev
+  application:
+    name: demo-service
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8000/eureka
+  instance:
+    prefer-ip-address: true

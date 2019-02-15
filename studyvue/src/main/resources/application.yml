@@ -1,0 +1,12 @@
+spring:
+  profiles:
+    active: pro
+
+name:
+  haha: 11
+  hehe: 22
+  add: shanghai
+  Hi_HI: sgakj
+
+
+#server.tomcat.basedir=home/base/temp
