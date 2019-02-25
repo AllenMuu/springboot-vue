@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>图书列表</title>
+    <link rel="stylesheet" th:href="@{/easy/css/bootstrap.css}" />
+    <link rel="stylesheet" th:href="@{/icon/css/font-awesome.min.css}" />
 </head>
 <body>
 <table border="1">
@@ -18,7 +20,6 @@
         <td th:text="${book.bookPrice}"></td>
         <td th:text="${book.publishHouse}"></td>
     </tr>
-
 </table>
 </body>
 </html>

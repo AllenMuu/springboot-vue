@@ -2,13 +2,18 @@ package com.example.studyvue.controller;
 
 import com.example.studyvue.config.User;
 import com.example.studyvue.domain.Book;
+import com.example.studyvue.ws.WebSocketServer;
 import java.util.ArrayList;
 import java.util.List;
+import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 /**
@@ -16,7 +21,7 @@ import org.springframework.web.servlet.ModelAndView;
  * @author: Mr.Joe
  * @create:
  */
-@RestController
+@Controller
 @RequestMapping("/home")
 public class HomeController {
     @Autowired
@@ -33,6 +38,7 @@ public class HomeController {
     }
 
     @GetMapping("book")
+    @ResponseBody
     public ModelAndView getBook() {
         List<Book> bookList = new ArrayList<>();
         Book book1 = new Book();
@@ -59,4 +65,20 @@ public class HomeController {
         return modelAndView;
     }
 
+    @PostMapping("/upload")
+    public String upload(MultipartFile multipartFile, HttpServletRequest request) {
+        //String path = request.getSession()
+        return null;
+    }
+
+    @RequestMapping("/websocket-demo")
+    public String pull() {
+        return "/demo/push1";
+    }
+
+    @RequestMapping("/test")
+    public String test() {
+        WebSocketServer.sendInfo("hahahh");
+        return "demo/success";
+    }
 }
